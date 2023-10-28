@@ -1,7 +1,6 @@
 import os
-import numpy as np
 import cv2
-from glob import glob
+test_dir = ""
 
 def create_dir(path):
     try:
@@ -11,12 +10,11 @@ def create_dir(path):
         print(f"Error: creating name with {path}")
 
 
-def save_frame(video_path, save_dir, gap=1):
+def save_frame(video_path, save_dir, gap=100):
     name = video_path.split('/')[-1].split(".")[0]
-    print(name)
     save_path = os.path.join(save_dir, name)
     create_dir(save_path)
-
+    test_dir = save_path
     cap = cv2.VideoCapture(video_path)
     idx = 0
 
@@ -34,15 +32,5 @@ def save_frame(video_path, save_dir, gap=1):
                 cv2.imwrite(f"{save_path}/{idx}.png", frame)
 
         idx += 1
-
-
-if __name__ == '__main__':
-    video_paths = glob("videos/*")
-    save_dir = "save"
-
-    temp = 1
-    for path in video_paths:
-        save_frame(path, save_dir)
-        print(f"Done with {temp}st video")
-        temp += 1
-        break
+    print(test_dir)
+    return test_dir    

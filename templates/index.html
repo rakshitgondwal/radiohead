@@ -6,10 +6,15 @@
         <title>Home Page</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/styles.css')}}">
     </head>
     <body>
-        <p>Hello world</p>        
+        <p>Hello world</p>  
+        <h1>We will find the anomaly</h1>      
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <input type="file" name="video">
+            <input type="submit" value="Submit"/>
+        </form>
         <script src="" async defer></script>
     </body>
 </html>
