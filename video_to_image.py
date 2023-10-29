@@ -10,7 +10,7 @@ def create_dir(path):
         print(f"Error: creating name with {path}")
 
 
-def save_frame(video_path, save_dir, gap=100):
+def save_frame(video_path, save_dir, gap=1):
     name = video_path.split('/')[-1].split(".")[0]
     save_path = os.path.join(save_dir, name)
     create_dir(save_path)
@@ -33,4 +33,8 @@ def save_frame(video_path, save_dir, gap=100):
 
         idx += 1
     print(test_dir)
-    return test_dir    
+    return test_dir
+
+def returnPath():
+    print("dir:",test_dir)
+    return test_dir   
