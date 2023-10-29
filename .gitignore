@@ -1,3 +1,4 @@
 /videos
 /uploads/*
 /save
+__pycache__
