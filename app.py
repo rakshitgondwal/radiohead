@@ -113,7 +113,7 @@ def load_image(y_preds, index):
 #     print("Message sent!")
 #   except Exception as e:
 #     print(str(e))
-  
+
 ########################################### ROUTES #################################################
 
 @app.route('/', methods=['GET', 'POST'])
@@ -124,7 +124,6 @@ def home():
         file = request.files['video']
         if file:
             filename = secure_filename(file.filename)
-
             if not allowed_file(filename):
                 return jsonify({"error": "Invalid file format. Please upload a valid video file."})
             
@@ -136,8 +135,6 @@ def home():
 
             try:
                 label = prediction(frame_directory, video_analysis_model)
-                phone_number = "+919988607788"
-                message = "Lund khalo"
                 #send_whatsapp_message(phone_number, message)
                 return jsonify({"label": label})
             except Exception as e:
@@ -146,6 +143,13 @@ def home():
 
 
     return jsonify({"error": "Invalid request"})
+
+# Route for the login page
+@app.route('/login', methods=["GET"])
+def login():
+    if request.method == "GET":
+        return render_template('coming-soon.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

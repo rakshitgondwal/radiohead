@@ -10,14 +10,14 @@ def create_dir(path):
         print(f"Error: creating name with {path}")
 
 
-def save_frame(video_path, save_dir, gap=1):
+def save_frame(video_path, save_dir, gap=10):
     name = video_path.split('/')[-1].split(".")[0]
     save_path = os.path.join(save_dir, name)
     create_dir(save_path)
     test_dir = save_path
     cap = cv2.VideoCapture(video_path)
     idx = 0
-
+    
     while True:
         ret, frame = cap.read()
 
